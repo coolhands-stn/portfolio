@@ -1,0 +1,244 @@
+.threads {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 15px;
+
+    overflow-y: scroll;
+
+    height: 100%;
+    width: 100%;
+
+    box-sizing: border-box;
+    padding-right: 10px;
+}
+
+/* done */
+.thread {
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+
+    padding: 10px 10px;
+
+    max-width: 100%;
+    position: relative;
+
+    scroll-snap-align: start;
+}
+
+/* done */
+.question {
+    position: relative;
+    max-width: 95%;
+
+    margin: 0 auto 10px auto;
+}
+
+/* done */
+.title {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: 15% 60% 20%;
+    grid-template-areas: "profile reference controls";
+
+    margin: 0 0 15px 0;
+}
+
+/** Show controls on title hover */
+.title:hover .threadTitleControlsContainer {
+    display: flex;
+    gap: 5px;
+}
+
+/* Profile Container */
+.profileContainer {
+    grid-area: profile;
+}
+
+/* Avatar + username */
+.studentProfile {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 5px;
+
+    height: 26px;
+}
+
+/* Student username */
+.studentProfile > p {
+    font-family: "Poppins", sans-serif;
+    font-weight: normal;
+    font-size: 0.7rem;
+
+    color: #7E84A3;
+}
+
+/* References */
+.referencesContainer {
+    grid-area: reference;
+
+    display: flex;
+    align-items: center;
+}
+
+.threadReferences,
+.threadTitleControlsDate {
+    font-family: "Poppins", sans-serif;
+    font-size: 0.7rem;
+    font-weight: normal;
+    
+    color: #131523;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Controls */
+.controlsContainer {
+    grid-area: controls;
+
+    display: flex;
+    align-items: center;
+}
+
+.titleAttachmentsContainer {
+    display: flex;
+    align-items: center;
+
+    margin: 0  20px 0 0;
+}
+
+.threadTitleControlsContainer {
+    {
+    display: none;
+    align-items: center;
+}
+
+/* Description */
+.threadQuestionInnerContainer {
+    width: 98%;
+    margin: 0 0 0 2%;
+    
+    display: grid;
+    grid-template-columns: 30px 1fr;
+    grid-template-areas: "title description";
+}
+
+.questionTitleContainer {
+    grid-area: title;
+}
+
+.questionDescriptionContainer {
+    grid-area: description;
+}
+
+.questionDescription,
+.questionTitle {
+    line-height: 1.7em;
+
+    font-family: "Mulish", sans-serif;
+    font-size: 0.7rem;
+    font-weight: bold;
+    
+    color: #656f79 ;
+}
+
+.answers,
+.reply {
+    font-family: "Poppins", sans-serif;
+    font-size: 0.7rem;
+    font-weight: bold;
+
+    color: #00252E;
+    cursor: pointer;
+
+    text-decoration: underline;
+
+    position: absolute;
+    bottom: -18px;
+    right: 5px;
+}
+
+.reply {
+    color:#707070;
+
+    right: 122px;
+}
+
+.responses {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    margin: 30px auto 0 auto;
+    max-width: 90%;
+    min-height: 100%;
+}
+
+/** Response container */
+.response-container {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    width: 100%;
+
+    position: relative;
+    margin: 0 0 20px 30px;
+}
+
+.response-container::before {
+    content: "";
+    height: 100%;
+
+    width: 2px;
+    background-color: #E9E9E9;
+
+    position: absolute;
+    left: -10px;
+}
+
+/* .response-container:not(:first-child){
+    margin: 25px 0 10px 29px;
+}  */
+
+.response-container:first-child{
+    margin: 25px 0 10px 29px;
+} 
+
+/** Answer title */
+.response-title-container {
+    min-width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin: 0 0 15px 0;
+}
+
+/** Answer title */
+.profileContainer {
+    grid-area: profile;
+}
+
+/** Answer Description **/
+.thread-response-container {
+    width: 92%;
+    margin: 0 0 15px 10px;
+}
+
+/** Answer Description **/
+.response-description  {
+    line-height: 1.7em;
+
+    font-family: "Mulish", sans-serif;
+    font-size: 0.7rem;
+    font-weight: bold;
+
+    cursor: pointer;
+    color: #656f79;
+}
