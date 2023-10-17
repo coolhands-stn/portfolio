@@ -8,21 +8,21 @@ const Question = (props) => {
         <main className={styles.question}>
             {/* Question */}
             {/* Title */}
-            <div className={style.title}>
+            <div className={styles.title}>
                 {/* Profile */}
                 <div className={styles.profileContainer}>
                     <div className={styles.studentProfile}>
-                        <Image src={sganyani} className="avatar" alt="student avatar"/>
-                        <p>{props.question.username}</p>
+                        <Image src="/sganyani.png" height={50} width={50} className={styles.avatar} alt="student avatar"/>
+                        <p>{props.mainQuestion.profile.username}</p>
                     </div>
                 </div>
                 {/* Reference */}
                 <div className={styles.referencesContainer}>
                     <p className={styles.threadReferences}>
-                        {`${props.question.mainQuestion.references.session} ${props.question.mainQuestion.references.year} ${props.question.mainQuestion.references.paper}`}
+                        {`${props.mainQuestion.references.session} ${props.mainQuestion.references.year} ${props.mainQuestion.references.paper}`}
                     </p>
                     <p className={styles.threadReferences} style={{ margin: "0 0 0 80px" }}>
-                        {`${props.question.mainQuestion.references.syllabus}`}
+                        {`${props.mainQuestion.references.syllabus}`}
                     </p>
                     <p 
                         className={styles.threadReferences}
@@ -31,7 +31,7 @@ const Question = (props) => {
                             textOverflow: "ellipsis",
                             whiteSpace: "nowrap",
                         }}>
-                         {`${props.question.mainQuestion.references.topic}`}
+                         {`${props.mainQuestion.references.topic}`}
                     </p>
                 </div>
                 {/* Controls */}
@@ -54,13 +54,10 @@ const Question = (props) => {
                 </div>
                 <div className={styles.questionDescriptionContainer}>
                     <p className={styles.questionDescription}>
-                        {`${props.question.mainQuestion.question.description}`}
+                        {`${props.mainQuestion.question.description}`}
                     </p>
                 </div>
             </div>
-
-            <p className={styles.reply}>reply</p>
-            <p className={style.answers}>view answers</p>
         </main>
     )
 }

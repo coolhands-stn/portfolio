@@ -1,0 +1,104 @@
+
+.responses {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    margin: 30px auto 0 auto;
+    max-width: 90%;
+    min-height: 100%;
+}
+
+/** Response container */
+.responseContainer {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    width: 100%;
+
+    position: relative;
+    margin: 0 0 20px 30px;
+}
+
+.responseContainer::before {
+    content: "";
+    height: 100%;
+
+    width: 2px;
+    background-color: #E9E9E9;
+
+    position: absolute;
+    left: -10px;
+}
+
+/* .response-container:not(:first-child){
+    margin: 25px 0 10px 29px;
+}  */
+
+.responseContainer:first-child{
+    margin: 25px 0 10px 29px;
+} 
+
+/** Answer title */
+.responseTitleContainer {
+    min-width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin: 0 0 15px 0;
+}
+
+/** Answer title */
+.profileContainer {
+    grid-area: profile;
+}
+
+.avatar {
+    width: 28px;
+    height: 28px;
+
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Avatar + username */
+.studentProfile {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 5px;
+
+    height: 26px;
+}
+
+/* Student username */
+.studentProfile > p {
+    font-family: var(--ff-p);
+    font-weight: normal;
+    font-size: 0.7rem;
+
+    color: #7E84A3;
+}
+
+/** Answer Description **/
+.threadResponseContainer {
+    width: 92%;
+    margin: 0 0 15px 10px;
+}
+
+/** Answer Description **/
+.responseDescription  {
+    line-height: 1.7em;
+
+    font-family: var(--ff-m);
+    font-size: 0.7rem;
+    font-weight: bold;
+
+    cursor: pointer;
+    color: #656f79;
+}

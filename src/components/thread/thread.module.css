@@ -1,0 +1,107 @@
+.forumThread {
+    border: 2px solid #E9E9E9;
+    border-radius:4px;
+
+    padding: 10px 10px;
+    margin: 0 auto 20px auto;
+
+    max-width: 100%;
+    position: relative;
+
+    scroll-snap-align: start;
+}
+
+.threadMainQuestion {
+    position: relative;
+    max-width: 95%;
+
+    margin: 0 auto 10px auto;
+}
+
+.forumThread::before {
+    content: "";
+    height: 100%;
+
+    width: 2px;
+    background-color: #E9E9E9;
+
+    position: absolute;
+    left: -10px;
+}
+
+.threadViewAnswers,
+.threadViewReply {
+    font-family: var(--ff-p);
+    font-size: 0.7rem;
+    font-weight: bold;
+
+    color:#00252E;
+    cursor: pointer;
+
+    text-decoration: underline;
+
+    position: absolute;
+    bottom: -18px;
+    right: 5px;
+}
+
+.threadViewReply {
+    color:#707070;
+
+    right: 122px;
+}
+
+.threadResponsesContainer {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    margin: 30px auto 0 auto;
+    max-width: 90%;
+    min-height: 100%;
+}
+
+/** Editor Styles */
+.editorContainer {
+    width: 100%;
+    height: 200px;
+
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-end;
+    justify-content: flex-start;
+
+    margin: 30px 0;
+}
+
+.editorTextArea {
+    height: 100px;
+    width: 50%;
+
+    border: 2px solid #E9E9E9;
+    border-radius: 4px;
+
+    padding: 10px 10px;
+    font-family: var(--ff-m);
+    font-size: 0.7rem;
+
+    color: #000;
+}
+
+.createPostButton {
+    height: 40px;
+    width: 200px;
+
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 4px;
+    border: none;
+
+    color: #fff;
+    cursor: pointer;
+
+    font-size: 0.7rem;
+    font-family: var(--ff-m);
+
+    margin: 20px 0 0 0;
+}

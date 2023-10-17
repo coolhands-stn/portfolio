@@ -1,30 +1,3 @@
-.threads {
-    display: flex;
-    flex-flow: column nowrap;
-    gap: 15px;
-
-    overflow-y: scroll;
-
-    height: 100%;
-    width: 100%;
-
-    box-sizing: border-box;
-    padding-right: 10px;
-}
-
-/* done */
-.thread {
-    border: 1px solid #e0e0e0;
-    border-radius: 5px;
-
-    padding: 10px 10px;
-
-    max-width: 100%;
-    position: relative;
-
-    scroll-snap-align: start;
-}
-
 /* done */
 .question {
     position: relative;
@@ -55,6 +28,16 @@
     grid-area: profile;
 }
 
+.avatar {
+    height: 28px;
+    width: 28px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+    cursor: pointer;
+}
+
 /* Avatar + username */
 .studentProfile {
     display: flex;
@@ -67,7 +50,7 @@
 
 /* Student username */
 .studentProfile > p {
-    font-family: "Poppins", sans-serif;
+    font-family: var(--ff-p);
     font-weight: normal;
     font-size: 0.7rem;
 
@@ -84,7 +67,7 @@
 
 .threadReferences,
 .threadTitleControlsDate {
-    font-family: "Poppins", sans-serif;
+    font-family: var(--ff-p);
     font-size: 0.7rem;
     font-weight: normal;
     
@@ -110,7 +93,6 @@
 }
 
 .threadTitleControlsContainer {
-    {
     display: none;
     align-items: center;
 }
@@ -137,7 +119,7 @@
 .questionTitle {
     line-height: 1.7em;
 
-    font-family: "Mulish", sans-serif;
+    font-family: var(--ff-m);
     font-size: 0.7rem;
     font-weight: bold;
     
@@ -146,7 +128,7 @@
 
 .answers,
 .reply {
-    font-family: "Poppins", sans-serif;
+    font-family: var(--ff-p);
     font-size: 0.7rem;
     font-weight: bold;
 
@@ -235,7 +217,7 @@
 .response-description  {
     line-height: 1.7em;
 
-    font-family: "Mulish", sans-serif;
+    font-family: var(--ff-m);
     font-size: 0.7rem;
     font-weight: bold;
 
