@@ -1,0 +1,38 @@
+.container {
+    width: 38px;
+    
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.radio {
+    cursor: pointer;
+}
+
+.label {
+    font-family: var(--ff-p); 
+    font-size: var(--fs-7);
+    font-weight: bold;
+    
+    color: var(--placeholder);
+}
+
+@media screen and (min-width: 280px) {
+    .radio {
+        height: 13px;
+        width: 13px;
+    }   
+
+    .container {
+        height: 30px;
+    }    
+}
+
+@media screen and (min-width: 769px) {
+    .radio {
+        height: 16px;
+        width: 16px;
+    }
+}

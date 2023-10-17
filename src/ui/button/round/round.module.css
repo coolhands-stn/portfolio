@@ -1,0 +1,20 @@
+.round {
+    height: 50px;
+    width: 50px;
+
+    border: none;
+    border-radius: 50%;
+    background-color: var(--secondary-green);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+    font-size: var(--fs-8);
+    font-weight: bold;
+    font-family: var(--ff-m);
+
+    color: var(--placeholder);
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

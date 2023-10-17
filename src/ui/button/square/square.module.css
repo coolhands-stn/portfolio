@@ -1,0 +1,21 @@
+.square {
+    height: 40px;
+    width: 150px;
+
+    border: none;
+    border-radius: 5px;
+    background-color: var(--secondary-green);
+
+    font-size: var(--fs-8);
+    font-weight: bold;
+    font-family: var(--ff-m);
+
+    color: white;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 0 0 10px;
+}

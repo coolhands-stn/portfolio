@@ -1,0 +1,31 @@
+.container {
+    position: relative;
+    
+    height: 40px;
+    width: 190px;
+
+    padding: 0 10px;
+    transition: all 0.4s;
+    border-radius: 4px 4px;
+    
+    font-family: var(--ff-m);
+    font-size: 0.7rem;
+
+    color: #808080;
+    text-overflow: ellipsis;
+    
+    overflow: hidden; 
+    white-space: nowrap;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.container:hover {
+    cursor: pointer;
+    color:  #808080;
+
+    background-color: #00252E;
+    font-weight: bold;
+}

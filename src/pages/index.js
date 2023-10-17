@@ -12,6 +12,7 @@ import sganyani from '../../public/sganyani.png'
 
 // Components
 import Thread from '@/components/thread/index'
+import Backdrop from "@/hoc/backdrop/backdrop"
 
 // Data
 import { threads } from '@/data'
@@ -22,7 +23,7 @@ import { threads } from '@/data'
 // import { MdKeyboardArrowLeft, MdViewTimeline } from 'react-icons/md';
 
 export default function Home() {
-
+  const [reply, setReply] = useState(false)
   // useEffect(()=> {
   //   const threshold = 0.9;
 
@@ -72,6 +73,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Backdrop reply={reply}/>
       <main>
         <section className={styles.nav}>
             <div className={styles.title}>
@@ -164,7 +166,7 @@ export default function Home() {
               <div className={styles.threads}>
                 {
                   threads.map((thread, index) => {
-                      return <Thread key={index}  thread={thread}  /> })
+                      return <Thread key={index}  thread={thread}  setReply={setReply}/> })
                 }
               </div>
           </section>
