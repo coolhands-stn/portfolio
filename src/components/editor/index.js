@@ -162,7 +162,7 @@ const Editor = (props)=> {
                         </Button>
                     </div>
 
-                    <Registering registering={registering} doneRegistering={doneRegistering} finishedRegisteringMessage="finished classification" defaultMessage="measuring text toxicity" />
+                    <Registering registering={registering} doneRegistering={doneRegistering} finishedRegisteringMessage="finished checking text toxicity" defaultMessage="checking text toxicity..." />
 
                     <div className={styles.output}>
                         {
@@ -170,8 +170,8 @@ const Editor = (props)=> {
                                 Object.keys(output).map((key, index)=> {
                                 return (
                                     <div className={styles.char} key={index}>
-                                        <span className={styles.key} style={{ color:output[key]===true?"red":"#0058FF"}}>{ key }</span>
-                                        <span className={styles.probability} style={{ backgroundColor:output[key]===true?"red":"green"}}></span>
+                                        <span className={styles.key} style={{ color:output[key]===true?"red":"red"}}>{ key }</span>
+                                        <span className={styles.probability} style={{ backgroundColor:output[key]===true?"red":"red"}}></span>
                                     </div>
                                 )
                             })):""

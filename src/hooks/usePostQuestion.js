@@ -94,9 +94,10 @@ const useRegistrationForm = () => {
                     model.classify([`${post.description}`]).then(predictions => {
                     predictions.map((prediction, index)=> {
                         setRegistering(false)
+                        setDoneRegistering(true)
                         const { label, results } = prediction
                         const { probabilities, match } = results
-
+                        console.log(probabilities, match)
                         if(output === null){
                             setOutput({ [label]:match })
                         }else{

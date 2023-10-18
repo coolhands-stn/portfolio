@@ -22,7 +22,7 @@ const Registering = (props) => {
                 size={21} 
                 strokeWidth={1}
                 color='#0058FF' />
-            <p className={styles.text} style={{ color: props.color?`${props.color}`:'#FFF', fontSize: props.fontSize?`${props.fontSize}`:'0.7rem' }}>
+            <p className={styles.text} style={{ color: props.color?`${props.color}`:'#00252E', fontSize: props.fontSize?`${props.fontSize}`:'0.7rem' }}>
                 {((props.doneRegistering===true) && (props.registering===false))?props.finishedRegisteringMessage:props.defaultMessage}
             </p>
         </div>
