@@ -93,6 +93,7 @@ const useRegistrationForm = () => {
                 toxicity.load(threshold, labelsToInclude).then(model => {
                     model.classify([`${post.description}`]).then(predictions => {
                     predictions.map((prediction, index)=> {
+                        setRegistering(false)
                         const { label, results } = prediction
                         const { probabilities, match } = results
 

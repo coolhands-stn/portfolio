@@ -31,6 +31,7 @@ import { BsVectorPen } from 'react-icons/bs';
 export default function Home() {
   const [reply, setReply] = useState(false)
   const [searchValue, setSearchValue] = useState("")
+  const [selectedFilter, setSelectedFilter] = useState("description")
 
   const FILTERS = [
     {
@@ -119,17 +120,26 @@ export default function Home() {
                       <p>Filters</p>
                   </div>
                   <section className={styles.filtersList}>
-                       <div className={styles.radioContainer}>
+                       <div
+                         className={styles.radioContainer} 
+                         onClick={()=>setSelectedFilter("description")}
+                         style={{ backgroundColor: selectedFilter === "description"?"transparent":"#e0e0e0", border: selectedFilter === "description"?"1px solid #e0e0e0":"none" }}>
                           <BsVectorPen className={styles.icon} />
                           <p>Description</p>
                         </div>
 
-                        <div className={styles.radioContainer}>
+                        <div 
+                          className={styles.radioContainer} 
+                          onClick={()=>setSelectedFilter("topic")}
+                          style={{ backgroundColor: selectedFilter === "topic"?"transparent":"#e0e0e0", border: selectedFilter === "topic"?"1px solid #e0e0e0":"none" }}>
                           {/* <LuSubtitles className={styles.icon} /> */}
                           <p>Topic</p>
                         </div>
 
-                        <div className={styles.radioContainer}>
+                        <div 
+                          className={styles.radioContainer} 
+                          onClick={()=>setSelectedFilter("timeline")}
+                          style={{ backgroundColor: selectedFilter === "timeline"?"transparent":"#e0e0e0", border: selectedFilter === "timeline"?"1px solid #e0e0e0":"none" }}>
                           {/* <MdViewTimeline className={styles.icon} /> */}
                           <p>Session | Year | Paper</p>
                         </div>
@@ -162,13 +172,21 @@ export default function Home() {
                   </div>
 
                   <div className={styles.filter}>
-                    default
+                      {selectedFilter}                  
                   </div>
               </div>
               <div className={styles.threads}>
                 {
                     threads.filter((thread) => {
+                      if(selectedFilter.toLowerCase() === "description"){
                         return searchValue === ''?thread:thread.mainQuestion.question.description.toLowerCase().includes(searchValue.toLowerCase())
+                      }else if(selectedFilter.toLowerCase() === "topic"){
+                        return searchValue === ''?thread:thread.mainQuestion.references.topic.toLowerCase().includes(searchValue.toLowerCase())
+                      }else if(selectedFilter.toLowerCase() === "timeline"){
+                        const { year, session, paper, syllabus, topic } = thread.mainQuestion.references
+                        const timeline = `${session} ${year} ${paper} `
+                        return searchValue === ''?thread:searchValue.trim() === timeline.trim()
+                      }
                     }).map((thread, index) => {
                         return <Thread key={index}  thread={thread}  setReply={setReply}/>
                        })

@@ -12,6 +12,8 @@ import Radio from "@/ui/input/radio/radio"
 import Button from "@/ui/button/round/round"
 import Notification from "@/ui/notification/notification"
 
+import Registering from "@/ui/progress/registering/registering"
+
 // Hooks
 import usePostQuestion from "@/hooks/usePostQuestion"
 
@@ -159,6 +161,8 @@ const Editor = (props)=> {
                             <BiMessageSquareAdd className={styles.icon} size={18} />
                         </Button>
                     </div>
+
+                    <Registering registering={registering} doneRegistering={doneRegistering} finishedRegisteringMessage="finished classification" defaultMessage="measuring text toxicity" />
 
                     <div className={styles.output}>
                         {

@@ -171,7 +171,7 @@ export const threads = [
                     "_id": "st213"
             },
             "answer": {
-                "description": "The Periodic Table is how researchers have arranged the 100+ elements that constitute all matter. Dmitri Mendeleev, a Russian chemist, proposed it in 1869. Mendeleev arranged the elements in order of the mass of their electrons, unlike prior attempts to organise the elements by characteristics. He also left empty spaces for items that had yet to be identified. As a result, he was able to forecast what those yet-to-be-discovered elements will be like.",
+                "description": "The Periodic Table is how researchers have arranged the 100+ elements that constitute all matter. Dmitri Mendeleev, a Russian chemist, proposed it in 1869.. Mendeleev arranged the elements in order of the mass of their electrons, unlike prior attempts to organise the elements by characteristics. He also left empty spaces for items that had yet to be identified. As a result, he was able to forecast what those yet-to-be-discovered elements will be like.",
                 "attachments": {
                     "audio": true,
                     "video": true
