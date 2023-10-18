@@ -24,11 +24,13 @@ import { threads } from '@/data'
 
 // Assets:Icons
 // import { FaArrowLeftLong, FaTimeline } from 'react-icons/fa';
-// import { BsVectorPen } from 'react-icons/bs';
+import { BsVectorPen } from 'react-icons/bs';
 // import { MdKeyboardArrowLeft, MdViewTimeline } from 'react-icons/md';
+// import { LuSubtitles} from 'react-icons/lu'
 
 export default function Home() {
   const [reply, setReply] = useState(false)
+  const [searchValue, setSearchValue] = useState("")
 
   const FILTERS = [
     {
@@ -117,18 +119,20 @@ export default function Home() {
                       <p>Filters</p>
                   </div>
                   <section className={styles.filtersList}>
-                      {
-                          FILTERS.map((filter, index)=> {
-                              return (
-                                  <div className={styles.radioContainer} key={index}>
-                                    {/* {
-                                        filter.name === "Description"?<BsVectorPen className={styles.icon} /> : filter.name === "Topic"?<BsVectorPen className={styles.icon}/>:<MdViewTimeline className={styles.icon} />
-                                    } */}
-                                    <p>{ filter.name }</p>
-                                  </div>
-                              )
-                          })
-                      }
+                       <div className={styles.radioContainer}>
+                          <BsVectorPen className={styles.icon} />
+                          <p>Description</p>
+                        </div>
+
+                        <div className={styles.radioContainer}>
+                          {/* <LuSubtitles className={styles.icon} /> */}
+                          <p>Topic</p>
+                        </div>
+
+                        <div className={styles.radioContainer}>
+                          {/* <MdViewTimeline className={styles.icon} /> */}
+                          <p>Session | Year | Paper</p>
+                        </div>
                   </section>
               </div>
           </section>
@@ -141,7 +145,12 @@ export default function Home() {
                       <button type="submit" className={styles.searchIcon}>
                         <BiSearch color="#808080" />
                       </button>
-                      <input className={styles.input} placeholder="Search..." />  
+                      <input 
+                            className={styles.input} 
+                            onChange={(event)=>setSearchValue(event.target.value)} 
+                            type='text' 
+                            placeholder='search...' 
+                            value={searchValue} />  
                   </div>
                   {/* Filter saved posts */}
                   <div className={styles.controlsBtn}>
@@ -158,8 +167,12 @@ export default function Home() {
               </div>
               <div className={styles.threads}>
                 {
-                  threads.map((thread, index) => {
-                      return <Thread key={index}  thread={thread}  setReply={setReply}/> })
+                    threads.filter((thread) => {
+                        return searchValue === ''?thread:thread.mainQuestion.question.description.toLowerCase().includes(searchValue.toLowerCase())
+                    }).map((thread, index) => {
+                        return <Thread key={index}  thread={thread}  setReply={setReply}/>
+                       })
+                  
                 }
               </div>
           </section>

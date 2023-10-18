@@ -86,16 +86,12 @@ const useRegistrationForm = () => {
                     keywords: registrationValues.keywords
                 }
 
-                console.log("post", post)
-
-                  const threshold = 0.9;
+                const threshold = 0.9;
 
                 const labelsToInclude = ['identity_attack', 'insult', 'threat'];
 
                 toxicity.load(threshold, labelsToInclude).then(model => {
-                console.log("model load successifully")
                     model.classify([`${post.description}`]).then(predictions => {
-                    console.log(predictions)
                     predictions.map((prediction, index)=> {
                         const { label, results } = prediction
                         const { probabilities, match } = results
