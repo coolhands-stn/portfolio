@@ -32,7 +32,8 @@ const regex = {
     courseDepartment:  /^([a-zA-Z\s]{3,100})$/,
 
     prerequisites: /[a-zA-Z\s]{3,50}(,(\s)?[a-zA-Z]{3,50})*/,
-    courseDescription: /([\w\s,\.\?\!\""])+/,
+    description: /([\w\s,\.\?\!\""])+/,
+    keywords: /([\w\s,\.\?\!\""])+/,
     hours: /^(?!(?:0|0\.0|0\.00)$)[+]?\d{1,3}/,
 
     tests: /^(?!(?:0|0\.0|0\.00)$)[+]?\d{1,2}/,

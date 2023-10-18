@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import * as toxicity from '@tensorflow-models/toxicity';
 
 // Hooks
 import useValidation from './useValidation'
@@ -40,6 +41,8 @@ const useRegistrationForm = () => {
         session: ["J", "N"]
     }
 
+    const [output, setOutput] = useState(null)
+
     const [registering, setRegistering] = useState(false)
     const [doneRegistering, setDoneRegistering] = useState(false)
     
@@ -73,19 +76,44 @@ const useRegistrationForm = () => {
                     message: '',
                     type: 'success'
                 })
-                // PUSH TO FIREBASE SERVER
-                if(userid) {
-                    // PUSH TO MONGO DB SERVER
-                    const post = {
-                        description: '',
-                        year: '',
-                        paper: '',
-                        session: '',
+               
+                const post = {
+                    description: registrationValues.description,
+                    year: registrationValues.year,
+                    paper: registrationValues.paper,
+                    session: registrationValues.session,
 
-                        keywords: ''
-                    }
+                    keywords: registrationValues.keywords
                 }
-        }
+
+                console.log("post", post)
+
+                  const threshold = 0.9;
+
+                const labelsToInclude = ['identity_attack', 'insult', 'threat'];
+
+                toxicity.load(threshold, labelsToInclude).then(model => {
+                console.log("model load successifully")
+                    model.classify([`${post.description}`]).then(predictions => {
+                    console.log(predictions)
+                    predictions.map((prediction, index)=> {
+                        const { label, results } = prediction
+                        const { probabilities, match } = results
+
+                        if(output === null){
+                            setOutput({ [label]:match })
+                        }else{
+                            setOutput((prevState)=> {
+                                return {
+                                        ...prevState,
+                                        [label]: match
+                                }
+                            })
+                        }
+                    })
+                    });
+                });
+            }
         }
     }
 
@@ -93,6 +121,7 @@ const useRegistrationForm = () => {
         registrationValues, 
         registrationErrors, 
         notificationStatus, 
+        setNotificationStatus,
         registering, 
         optionsValues, 
         doneRegistering,
@@ -103,7 +132,8 @@ const useRegistrationForm = () => {
         checkErrors, 
         checkEmptyFields, 
         setOptionsValues,
-        listItem }
+        listItem,
+    output }
 }
  
 export default useRegistrationForm

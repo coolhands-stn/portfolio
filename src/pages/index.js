@@ -10,7 +10,12 @@ import styles from "@/styles/index.module.css"
 // Assets
 import sganyani from '../../public/sganyani.png'
 
-// Components
+// Icons
+import { BiSearch, BiMessageSquareAdd } from 'react-icons/bi'
+import { BsBookmark } from 'react-icons/bs'
+// import { PiSubtitles } from 'react-icons/pi'
+
+  // Components
 import Thread from '@/components/thread/index'
 import Backdrop from "@/hoc/backdrop/backdrop"
 
@@ -24,18 +29,6 @@ import { threads } from '@/data'
 
 export default function Home() {
   const [reply, setReply] = useState(false)
-  // useEffect(()=> {
-  //   const threshold = 0.9;
-
-  //   const labelsToInclude = ['identity_attack', 'insult', 'threat'];
-
-  //   toxicity.load(threshold, labelsToInclude).then(model => {
-  //     console.log("model load successifully")
-  //       model.classify(['you suck']).then(predictions => {
-  //         console.log(predictions)
-  //       });
-  //   });
-  // })
 
   const FILTERS = [
     {
@@ -73,7 +66,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Backdrop reply={reply}/>
+      <Backdrop reply={reply} setReply={setReply} />
       <main>
         <section className={styles.nav}>
             <div className={styles.title}>
@@ -146,17 +139,17 @@ export default function Home() {
                   <div className={styles.frSearch}>
                       {/* Filter threads */}
                       <button type="submit" className={styles.searchIcon}>
-                        <i className="fa-solid fa-magnifying-glass"></i>
+                        <BiSearch color="#808080" />
                       </button>
                       <input className={styles.input} placeholder="Search..." />  
                   </div>
                   {/* Filter saved posts */}
                   <div className={styles.controlsBtn}>
-                    <i className="fa-regular fa-bookmark"></i>
+                    <BsBookmark color='#808080' />
                   </div>
                   {/* Add new post */}
-                  <div className={styles.controlsBtn}>
-                    <i className="fa-solid fa-plus"></i>
+                  <div className={styles.controlsBtn} onClick={()=>setReply(true)}>
+                    <BiMessageSquareAdd color='#808080' />
                   </div>
 
                   <div className={styles.filter}>
