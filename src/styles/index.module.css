@@ -84,7 +84,7 @@
 
     position: relative;
 
-    height: 150px;
+    height: 250px;
 
     margin: 10px 0 10px 0;
 }
@@ -289,19 +289,6 @@
     background-color: #FFF;
 }
 
-.controls { 
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    gap: 10px;
-
-    position: relative;
-
-    height: 150px;
-
-    margin: 10px 0 10px 0;
-}
-
 .placeholderDescription {
     font-family: var(--ff-m);
     font-weight: bold;
@@ -317,6 +304,30 @@
     position: absolute;
     bottom: 2px;
 
+    display: flex;
+    flex-flow: column nowrap;
+
+    height: 50px;
+    gap: 4px;
+}
+
+.filter > div {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    height: 25px;
+}
+
+.filter > div > p {
+    font-family: var(--ff-m);
+    font-weight: bold;
+    font-size: 0.6rem;
+
+    color: #656f79;
+}
+
+.filter > p {
     height: 15px;
     border-radius: 10px;
     background-color: #e0e0e0;
@@ -329,6 +340,7 @@
 
     display: flex;
     align-items: center;
+    justify-content: center;
 
     padding: 5px 5px;
 }

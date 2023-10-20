@@ -11,7 +11,7 @@ import styles from "@/styles/index.module.css"
 import sganyani from '../../public/sganyani.png'
 
 // Icons
-import { BiSearch, BiMessageSquareAdd } from 'react-icons/bi'
+import { BiSearch, BiMessageSquareAdd, BiInfoCircle } from 'react-icons/bi'
 import { BsBookmark } from 'react-icons/bs'
 // import { PiSubtitles } from 'react-icons/pi'
 
@@ -172,7 +172,11 @@ export default function Home() {
                   </div>
 
                   <div className={styles.filter}>
-                      {selectedFilter}                  
+                    <div>
+                      <BiInfoCircle color="#0058FF" />
+                      <p>Selected Filter</p>
+                    </div>
+                    <p>{selectedFilter}</p>                  
                   </div>
               </div>
               <div className={styles.threads}>
